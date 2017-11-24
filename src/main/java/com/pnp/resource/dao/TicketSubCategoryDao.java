@@ -7,6 +7,6 @@ import com.pnp.resource.model.TicketSubCategory;
 public interface TicketSubCategoryDao {
 	public List<TicketSubCategory> getAllData();
 	public TicketSubCategory findById(int id);
-	public boolean addTicketCategory(TicketSubCategory category);
-	public boolean deleteTicketCategory(TicketSubCategory category);
+	public boolean addTicketSubCategory(TicketSubCategory category);
+	public boolean updateTicketSubCategory(TicketSubCategory category);
 }

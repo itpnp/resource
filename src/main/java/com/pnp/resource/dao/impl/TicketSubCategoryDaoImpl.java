@@ -6,7 +6,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -50,8 +49,9 @@ public class TicketSubCategoryDaoImpl implements TicketSubCategoryDao {
 			System.out.println("Retrieving data sub category ticket...");
 			session = HibernateUtilReward.getSessionFactory().openSession();
 			session.beginTransaction();
-			Query query = session.createQuery("From TicketCategory");
-			subCategory = (TicketSubCategory) query.uniqueResult();
+			Criteria crt= session.createCriteria(TicketSubCategory.class)
+					.add(Restrictions.eq("subCategoryId", id));
+			subCategory = (TicketSubCategory) crt.uniqueResult();
 			if(subCategory != null){
 				Hibernate.initialize(subCategory.getTicketCategory());
 			}
@@ -66,7 +66,7 @@ public class TicketSubCategoryDaoImpl implements TicketSubCategoryDao {
 	}
 
 	@Override
-	public boolean addTicketCategory(TicketSubCategory category) {
+	public boolean addTicketSubCategory(TicketSubCategory category) {
 		try{
 			session = HibernateUtilReward.getSessionFactory().openSession();
 			session.beginTransaction();
@@ -84,7 +84,7 @@ public class TicketSubCategoryDaoImpl implements TicketSubCategoryDao {
 	}
 
 	@Override
-	public boolean deleteTicketCategory(TicketSubCategory category) {
+	public boolean updateTicketSubCategory(TicketSubCategory category) {
 		try{
 			session = HibernateUtilReward.getSessionFactory().openSession();
 			session.beginTransaction();

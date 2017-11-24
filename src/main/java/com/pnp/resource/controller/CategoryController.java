@@ -49,6 +49,34 @@ public class CategoryController {
 	public @ResponseBody boolean addSubCategory(@RequestBody TicketSubCategory data){
 		TicketCategory cat = ticketCategoryService.findById(data.getTicketCategory().getCategoryId());
 		data.setTicketCategory(cat);
-		return ticketSubCategoryService.addTicketCategory(data);
+		return ticketSubCategoryService.addTicketSubCategory(data);
 	}
+	
+	@RequestMapping(value="/reward/updatecategory", method = RequestMethod.POST, headers="Accept=application/json")
+	public @ResponseBody boolean updateCategory(@RequestBody TicketCategory data){
+		return ticketCategoryService.updateTicketCategory(data);
+	}
+	
+	@RequestMapping(value="/reward/deletecategory", method = RequestMethod.POST, headers="Accept=application/json")
+	public @ResponseBody boolean deleteCategory(@RequestBody TicketCategory data){
+		TicketCategory cat = ticketCategoryService.findById(data.getCategoryId());
+		cat.setStatus("Non Aktif");
+		return ticketCategoryService.updateTicketCategory(cat);
+	}
+	
+	@RequestMapping(value="/reward/updatesubcategory", method = RequestMethod.POST, headers="Accept=application/json")
+	public @ResponseBody boolean updateSubCategory(@RequestBody TicketSubCategory data){
+		TicketCategory cat = ticketCategoryService.findById(data.getTicketCategory().getCategoryId());
+		data.setTicketCategory(cat);
+		return ticketSubCategoryService.updateTicketSubCategory(data);
+	}
+	
+	@RequestMapping(value="/reward/deletesubcategory", method = RequestMethod.POST, headers="Accept=application/json")
+	public @ResponseBody boolean deleteSubCategory(@RequestBody TicketSubCategory data){
+		TicketSubCategory cat = ticketSubCategoryService.findById(data.getSubCategoryId());
+		cat.setStatus("Non Aktif");
+		return ticketSubCategoryService.updateTicketSubCategory(cat);
+	}
+	
+	
 }

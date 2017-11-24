@@ -10,5 +10,6 @@ public interface CredentialService {
 	public Credential login(String username, String password);
 	public boolean addCredential(Credential credential);
 	public boolean updateCredential(Credential credential);
-	public Employee findById(String nik);
+	public Employee findByEmployeeId(String nik);
+	public Credential findById(int id);
 }

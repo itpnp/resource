@@ -22,5 +22,6 @@ public interface CredentialDao {
 	 */
 	public boolean addCredential(Credential credential);
 	public boolean updateCredential(Credential credential);
-	public Employee findById(String nik);
+	public Employee findByEmployeeId(String nik);
+	public Credential findById(int id);
 }

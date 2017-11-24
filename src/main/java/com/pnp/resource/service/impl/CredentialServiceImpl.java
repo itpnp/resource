@@ -35,15 +35,21 @@ public class CredentialServiceImpl implements CredentialService{
 	}
 
 	@Override
-	public Employee findById(String nik) {
+	public Employee findByEmployeeId(String nik) {
 		// TODO Auto-generated method stub
-		return credentialDao.findById(nik);
+		return credentialDao.findByEmployeeId(nik);
 	}
 
 	@Override
 	public boolean updateCredential(Credential credential) {
 		// TODO Auto-generated method stub
 		return credentialDao.updateCredential(credential);
+	}
+
+	@Override
+	public Credential findById(int id) {
+		// TODO Auto-generated method stub
+		return credentialDao.findById(id);
 	}
 
 

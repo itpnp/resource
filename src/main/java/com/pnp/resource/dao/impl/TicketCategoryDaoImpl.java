@@ -77,7 +77,7 @@ public class TicketCategoryDaoImpl implements TicketCategoryDao {
 	}
 
 	@Override
-	public boolean deleteTicketCategory(TicketCategory category) {
+	public boolean updateTicketCategory(TicketCategory category) {
 		try{
 			session = HibernateUtilReward.getSessionFactory().openSession();
 			session.beginTransaction();

@@ -34,9 +34,9 @@ public class TicketCategoryServiceImpl implements TicketCategoryService {
 	}
 
 	@Override
-	public boolean deleteTicketCategory(TicketCategory category) {
+	public boolean updateTicketCategory(TicketCategory category) {
 		// TODO Auto-generated method stub
-		return ticketCategoryDao.deleteTicketCategory(category);
+		return ticketCategoryDao.updateTicketCategory(category);
 	}
 	
 }

@@ -36,15 +36,22 @@ public class CredentialRewardController {
 	
 	@RequestMapping(value="/reward/addCredential", method = RequestMethod.POST, headers="Accept=application/json")
 	public @ResponseBody boolean addCredential(@RequestBody Credential data){
-		Employee emp = credentialService.findById(data.getEmployee().getNik());
+		Employee emp = credentialService.findByEmployeeId(data.getEmployee().getNik());
 		data.setEmployee(emp);
 		return credentialService.addCredential(data);
 	}
 	
 	@RequestMapping(value="/reward/updateCredential", method = RequestMethod.POST, headers="Accept=application/json")
 	public @ResponseBody boolean updateCredential(@RequestBody Credential data){
-		Employee emp = credentialService.findById(data.getEmployee().getNik());
+		Employee emp = credentialService.findByEmployeeId(data.getEmployee().getNik());
 		data.setEmployee(emp);
 		return credentialService.updateCredential(data);
+	}
+	
+	@RequestMapping(value="/reward/deleteCredential", method = RequestMethod.POST, headers="Accept=application/json")
+	public @ResponseBody boolean deleteCredential(@RequestBody Credential data){
+		Credential crd = credentialService.findById(data.getAccessId());
+		crd.setStatus("0");
+		return credentialService.updateCredential(crd);
 	}
 }

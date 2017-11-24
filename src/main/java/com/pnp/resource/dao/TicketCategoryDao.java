@@ -8,6 +8,5 @@ public interface TicketCategoryDao {
 	public List<TicketCategory> getAllData();
 	public TicketCategory findById(int id);
 	public boolean addTicketCategory(TicketCategory category);
-	public boolean deleteTicketCategory(TicketCategory category);
-	
+	public boolean updateTicketCategory(TicketCategory category);
 }

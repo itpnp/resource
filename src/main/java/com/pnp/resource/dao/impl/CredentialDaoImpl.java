@@ -48,6 +48,7 @@ public class CredentialDaoImpl implements CredentialDao {
 	@Override
 	public Credential login(String username, String password) {
 		Credential credential = null;
+		
 		try{
 			System.out.println("Checking Username And Password...");
 			session = HibernateUtilReward.getSessionFactory().openSession();
@@ -93,10 +94,9 @@ public class CredentialDaoImpl implements CredentialDao {
 	}
 
 	@Override
-	public Employee findById(String nik) {
+	public Employee findByEmployeeId(String nik) {
 		Employee employee = null;
 		try{
-			System.out.println("Checking Username And Password...");
 			session = HibernateUtilReward.getSessionFactory().openSession();
 			session.beginTransaction();
 			Criteria crt = session.createCriteria(Employee.class)
@@ -135,6 +135,30 @@ public class CredentialDaoImpl implements CredentialDao {
 	            session.close();
 	         }
 		}
+	}
+
+	@Override
+	public Credential findById(int id) {
+		Credential credential = null;
+		try{
+			session = HibernateUtilReward.getSessionFactory().openSession();
+			session.beginTransaction();
+			Criteria crt = session.createCriteria(Credential.class)
+					.add(Restrictions.eq("accessId", id));
+			credential = (Credential) crt.uniqueResult();
+			if(credential != null) {
+			    Hibernate.initialize(credential.getEmployee());
+			    Hibernate.initialize(credential.getEmployee().getDepartment());
+			    Hibernate.initialize(credential.getEmployee().getOccupation());
+			}
+		}catch(HibernateException e){
+			e.printStackTrace();
+		}finally{
+			 if (session.isOpen()){
+	                session.close();
+	            }
+		}
+		return credential;
 	}
 	
 

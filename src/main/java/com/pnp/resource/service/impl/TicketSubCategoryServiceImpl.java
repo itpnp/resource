@@ -28,15 +28,15 @@ public class TicketSubCategoryServiceImpl implements TicketSubCategoryService{
 	}
 
 	@Override
-	public boolean addTicketCategory(TicketSubCategory category) {
+	public boolean addTicketSubCategory(TicketSubCategory category) {
 		// TODO Auto-generated method stub
-		return ticketSubCategoryDao.addTicketCategory(category);
+		return ticketSubCategoryDao.addTicketSubCategory(category);
 	}
 
 	@Override
-	public boolean deleteTicketCategory(TicketSubCategory category) {
+	public boolean updateTicketSubCategory(TicketSubCategory category) {
 		// TODO Auto-generated method stub
-		return ticketSubCategoryDao.deleteTicketCategory(category);
+		return ticketSubCategoryDao.updateTicketSubCategory(category);
 	}
 
 }
