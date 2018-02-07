@@ -10,14 +10,7 @@
 		<property name="hibernate.connection.password">holo2010</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<property name="show_sql">true</property>
-		<mapping class="com.pnp.barcode.model.MasterBahan"></mapping>
-		<mapping class="com.pnp.barcode.model.ViewPaletteRimRollRfid"></mapping>
-		<mapping class="com.pnp.barcode.model.DetailRimRfid"></mapping>
-		<mapping class="com.pnp.barcode.model.DataKeluar"></mapping>
-		<mapping class="com.pnp.barcode.model.DetailSortir"></mapping>
-		<mapping class="com.pnp.barcode.model.LabelFinishing"></mapping>
-		<mapping class="com.pnp.barcode.model.PakaiLabelRfid"></mapping>
-		<mapping class="com.pnp.barcode.model.PakaiLabelKey"></mapping>
-		<mapping class="com.pnp.barcode.model.RejectRfid"></mapping>
+		<mapping class="com.pnp.resource.model.KartuKerja"></mapping>
+		<mapping class="com.pnp.resource.model.WasteKeluar"></mapping>
 	</session-factory>
 </hibernate-configuration>                    

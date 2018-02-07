@@ -1,0 +1,8 @@
+com.pnp.resource.controller
+com.pnp.resource.dao
+com.pnp.resource.dao.impl
+com.pnp.resource.dto
+com.pnp.resource.model
+com.pnp.resource.service
+com.pnp.resource.service.impl
+com.pnp.resource.util

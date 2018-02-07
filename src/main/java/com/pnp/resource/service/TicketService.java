@@ -10,7 +10,7 @@ public interface TicketService {
 	public List<Ticket> findByNik(String nik);
 	public List<Ticket> findByDepartmentName(String name);
 	public List<Ticket> findByDepartmentAndMonth(String name, String month, String year);
-	public int getTotalTicketByEmployeeAndMonth(String nik, String month, String year);
+	public Long getTotalTicketByEmployeeAndMonth(String nik, String month, String year);
 	public List<Ticket> findByMonth(String month, String year);
 	public boolean updateTicket(Ticket ticket);
 	public boolean addTicket(Ticket ticket);

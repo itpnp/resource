@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -33,6 +35,7 @@ public class Ticket {
 	private Employee officer;
 	
 	@Column(name="tanggal_tilang")
+	@Temporal(TemporalType.DATE)
 	private Date ticketDate;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

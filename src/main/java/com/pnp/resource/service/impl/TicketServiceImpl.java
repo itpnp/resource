@@ -45,7 +45,7 @@ public class TicketServiceImpl implements TicketService{
 	}
 
 	@Override
-	public int getTotalTicketByEmployeeAndMonth(String nik, String month, String year) {
+	public Long getTotalTicketByEmployeeAndMonth(String nik, String month, String year) {
 		// TODO Auto-generated method stub
 		return ticketDao.getTotalTicketByEmployeeAndMonth(nik, month, year);
 	}

@@ -2,18 +2,18 @@ package com.pnp.resource.dto;
 
 public class Parameter {
 
-	private String nik;
+	private String general;
 	private String month;
 	private String year;
 	
 	public Parameter() {
 		super();
 	}
-	public String getNik() {
-		return nik;
+	public String getGeneral() {
+		return general;
 	}
-	public void setNik(String nik) {
-		this.nik = nik;
+	public void setGeneral(String general) {
+		this.general = general;
 	}
 	public String getMonth() {
 		return month;
